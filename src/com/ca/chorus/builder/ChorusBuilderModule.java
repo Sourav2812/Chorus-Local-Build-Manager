@@ -1,7 +1,6 @@
  package com.ca.chorus.builder;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -20,10 +19,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -31,12 +28,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicArrowButton;
 
@@ -45,7 +38,6 @@ import com.ca.chorus.utils.CustomJCheckBox;
 import com.ca.chorus.utils.CustomJLabel;
 import com.ca.chorus.utils.CustomJMenu;
 import com.ca.chorus.utils.CustomJMenuItem;
-import com.ca.chorus.utils.JConsole;
 import com.ca.chorus.utils.JOutlookBar;
 
 
@@ -77,33 +69,13 @@ public class ChorusBuilderModule {
 	}	
 	public static void initUI(){
 		JOutlookBar outlookbar = new JOutlookBar();
-		
-		//outlookbar.addBar("Data Panel", dataPanel());
-		
-	   
-		
 		JFrame frame = new JFrame("Chorus Local Build Manager");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setSize(820,420);
-		//frame.setJMenuBar(myMenuBar(frame));
-		
-		//outlookbar.addBar( "WorkspaceList", infoPanel(frame));
 		outlookbar.addBar("Save Workspace", saveWorkspacePanel(frame));
 		outlookbar.addBar("Configuration", configurationPanel(frame));
-		//outlookbar.addBar("V1 Task Burner", versiononePanel());
-		//outlookbar.addBar("DTS Managment", dtspanel());
 		outlookbar.addBar("Option Panel", optionPanel());
 		outlookbar.setVisibleBar(2);
-		
-//		JTabbedPane tabpane1 = new JTabbedPane();
-//		tabpane1.setBackground(Color.WHITE);
-//		tabpane1.setForeground(Color.BLUE);
-//		UIManager.put("JTabbedPane.setSelectionBackground", Color.WHITE);
-//		tabpane1.addTab("Build", dataPanel());
-//		tabpane1.addTab("Optional", outlookbar);
-		//frame.add(infoPanel(frame), BorderLayout.PAGE_END);
-		//frame.add(tabpane1, BorderLayout.CENTER);
-		
 		frame.add(dataPanel(frame), BorderLayout.BEFORE_FIRST_LINE);
 		frame.add(outlookbar, BorderLayout.CENTER);
 		frame.add(infoPanel(frame),BorderLayout.AFTER_LAST_LINE);
@@ -302,8 +274,7 @@ public class ChorusBuilderModule {
         		JPanel panel = new JPanel(new GridBagLayout());
         		panel.setBackground(Color.WHITE);
         		
-        	    GridBagConstraints gc = new GridBagConstraints();
-//        	    
+        	    GridBagConstraints gc = new GridBagConstraints();   	    
         		final CustomJLabel buildLabel = new CustomJLabel("Build Command:");
         	    gc.fill = GridBagConstraints.NONE;
         	    gc.weightx = 0.5;
@@ -735,13 +706,7 @@ public class ChorusBuilderModule {
       
 	    
 	    mailcheck.setSelected(true);
-	    
-	    
-	    //panel1.add(mailid1,gc1);
-	    
-	   
-	    //panel1.add(mailtext,gc1);
-	    
+
         main.add(panel);
        
         buildText.setText(ReadConfig.readConfig("build"));
@@ -836,15 +801,12 @@ public class ChorusBuilderModule {
 	}
 	public static JPanel dataPanel(final JFrame frame1)
 	{
-//		JPanel mainpanel = new JPanel( new FlowLayout(FlowLayout.CENTER, 10, 10) );
-//		mainpanel.setBackground(Color.WHITE);
 		String[] items = { "None","All", "Demo", "Security", "DB2tools", "Storage", "Performance", "SDK"};
 		final CustomJCheckBox[] checkboxes = new CustomJCheckBox[8];
 	    JPanel panel = new JPanel(new GridBagLayout());
 	    panel.setBorder(new EmptyBorder(20, 0, 10, 0));
 	    panel.setBackground(Color.WHITE);
 	    JPanel panel1 = new JPanel(new GridBagLayout());
-	    //panel.setForeground(Color.RED);
 	    GridBagConstraints gc = new GridBagConstraints();
 	    
 	   
@@ -971,16 +933,6 @@ public class ChorusBuilderModule {
 	    gc.gridx = 6;
 	    gc.gridy = 4;
 	    panel.add(set_default,gc);
-	   
-//	    CustomJButton Stop_Button = new CustomJButton("STOP");
-//	    gc.fill = GridBagConstraints.NONE;
-//	    gc.weightx = 0.5;
-//	    gc.gridwidth = 2;
-//	    gc.gridx = 7;
-//	    gc.gridy = 4;
-//	    Stop_Button.setForeground(Color.RED);
-//	    panel.add(Stop_Button,gc);
-	   
 	    clean.setSelected(true);
 	    build.setSelected(true);
 	    securityRole.setSelected(true);
@@ -1090,63 +1042,6 @@ public class ChorusBuilderModule {
 			}
 		});
 	    
-//	    Stop_Button.addActionListener(new ActionListener() {
-//			
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				t.interrupt();
-//			}
-//		});
-	    gc.fill = GridBagConstraints.NONE;
-//	    gc.weightx = 0.5;
-//	    gc.gridwidth = 2;
-//	    gc.gridx = 0;
-//	    gc.gridy = 4;
-//	    panel.add(Clean_Button,gc);
-//	    CustomJButton Build_Button = new CustomJButton("Build Code");
-//	    
-//	    gc.fill = GridBagConstraints.NONE;
-//	    gc.weightx = 0.5;
-//	    gc.gridwidth = 2;
-//	    gc.gridx = 2;
-//	    gc.gridy = 4;
-//	    panel.add(Build_Button,gc);
-//	    CustomJButton Cargo_Start_Button = new CustomJButton("Cargo Start");
-//	    
-//	    gc.fill = GridBagConstraints.NONE;
-//	    gc.weightx = 0.5;
-//	    gc.gridwidth = 2;
-//	    gc.gridx = 4;
-//	    gc.gridy = 4;
-//	    panel.add(Cargo_Start_Button,gc);
-////	    
-//	    
-//	    JButton Chorus_Ready_Button = new JButton("Chorus Ready");
-//	    Chorus_Ready_Button.setForeground(Color.RED);
-//	    
-//	    gc.fill = GridBagConstraints.NONE;
-//	    gc.weightx = 0.5;
-//	    gc.weighty = 2.0;
-//	    gc.gridwidth = 2;
-//	    gc.gridx = 6;
-//	    gc.gridy = 4;
-//	    panel.add(Chorus_Ready_Button,gc);
-//	    
-	    
-//	    CustomJButton Launch_local_Button = new CustomJButton("Launch Local");
-//	    
-//	    gc.fill = GridBagConstraints.NONE;
-//	    gc.weightx = 0.5;
-//	    gc.weighty = 2.0;
-//	    gc.gridwidth = 2;
-//	    gc.gridx = 4;
-//	    gc.gridy = 4;
-//	    panel.add(Launch_local_Button,gc);
-	    
-	    
-	    
-	    //clean_status_button.setBackground(Color.yellow);
 	    gc.fill = GridBagConstraints.HORIZONTAL;
 	    gc.weightx = 0.5;
 	    gc.weighty = 5.0;
@@ -1168,10 +1063,7 @@ public class ChorusBuilderModule {
 	    gc.gridx = 3;
 	    gc.gridy = 6;
 	    panel.add(build_status_button,gc);
-//	    
-//	    
-	    
-	    
+    
 	    gc.fill = GridBagConstraints.HORIZONTAL;
 	    gc.weightx = 0.5;
 	    gc.weighty = 5.0;
@@ -1182,31 +1074,8 @@ public class ChorusBuilderModule {
 	    gc.gridy = 6;
 	    panel.add(cargo_status_button,gc);
 	    
-//	    JPanel consolePanel = new JPanel(new GridBagLayout());
-//		
-//		//infopanel.setBackground(Color.WHITE);
-//       //consolePanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-//		GridBagConstraints gc1 = new GridBagConstraints();
-//		
-//		final JTextArea console = new JTextArea(12,70);
-//		console.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-//		//workspaces.setForeground(Color.RED);
-//	    gc1.fill = GridBagConstraints.NONE;
-//	    gc1.weightx = 0.5;
-//	    gc1.gridx = 3;
-//	    gc1.gridy = 0;
-//	    consolePanel.add(console,gc1);
 	    workspacePath = getWorkspacePath();
-//	    Cargo_Start_Button.addActionListener(new ActionListener() {
-//	    	 
-//            public void actionPerformed(ActionEvent e)
-//            {
-//            	cargo_status_button.setBackground(Color.YELLOW);
-//            	ChorusCargoRunner.runCargo(workspacePath,ReadConfig.readConfig("cargo"),cargo_status_button);
-//            }
-//        });
-	    
-	    
+
 	    Clean_Button.addActionListener(new ActionListener() {
 	    	 
             public void actionPerformed(ActionEvent e)
@@ -1237,7 +1106,7 @@ public class ChorusBuilderModule {
             	}
             	
             	ChorusMavenCleaner.mavenCleaner(workspacePath,role,clean_status_button);
-//    				
+            	
             	try {
             		clean_status_button.setOpaque(true);
                 	clean_status_button.setBackground(Color.YELLOW);
@@ -1248,21 +1117,11 @@ public class ChorusBuilderModule {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-            	//clean_status_button.setOpaque(true);
             	
     	           
             }
         });
 	    
-	   
-//	    Build_Button.addActionListener(new ActionListener() {
-//	    	 
-//            public void actionPerformed(ActionEvent e)
-//            {
-//            	ChorusMavenBuilder.mavenBuilder(workspacePath,ReadConfig.readConfig("build"),build_status_button,ReadConfig.readConfig("UserId"));
-//            		
-//            }
-//        });
 	    clean_status_button.addActionListener(new ActionListener() {
 			
 			@Override
@@ -1292,25 +1151,6 @@ public class ChorusBuilderModule {
 				}
 			}
 		});
-			
-		
-	
-	   	
-//	   Chorus_Ready_Button.addActionListener(new ActionListener() {
-//		
-//		@Override
-//		public void actionPerformed(ActionEvent e) {
-			
-//        	
-//        	ChorusReady.chorusReady(workspacePath, role, ReadConfig.readConfig("build"), ReadConfig.readConfig("cargo"),clean_status_button, build_status_button,cargo_status_button);
-//			
-//		}
-//	});
-//	   
-	  
-//	    mainpanel.add(panel);
-//	    mainpanel.add(panel1);
-//	    mainpanel.add(console);
 	
 	   return panel;
 	}
@@ -1321,7 +1161,6 @@ public class ChorusBuilderModule {
 		
 		JPanel infopanel = new JPanel(new GridBagLayout());
 		
-		//infopanel.setBackground(Color.WHITE);
 		infopanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		GridBagConstraints gc = new GridBagConstraints();
 		
@@ -1358,18 +1197,13 @@ public class ChorusBuilderModule {
 	    }
 
 		radiobtn1.setText(ReadConfig.readConfig("OtherWorkspace1"));
-		//radiobtn1.setBackground(Color.WHITE);
-		//System.out.println(workspaceList.get(0));
 		radiobtn1.setForeground(Color.BLUE);
 		gc.weightx = 0;
 	    gc.gridx = 1;
 	    gc.gridy = 1;
 	    infopanel.add(radiobtn1,gc);
-	    
-//	   
-	    
+
 	    radiobtn2.setText(ReadConfig.readConfig("OtherWorkspace2"));
-	    //radiobtn2.setBackground(Color.WHITE);
 		radiobtn2.setForeground(Color.BLUE);
 		gc.weightx = 0;
 	    gc.gridx = 3;
@@ -1379,7 +1213,6 @@ public class ChorusBuilderModule {
 	    
 	    
 	    radiobtn3.setText(ReadConfig.readConfig("OtherWorkspace3"));
-	    //radiobtn3.setBackground(Color.WHITE);
 		radiobtn3.setForeground(Color.BLUE);
 		gc.weightx = 0;
 	    gc.gridx = 5;
@@ -1397,7 +1230,6 @@ public class ChorusBuilderModule {
 	    
 	    for(int i = 0 ; i < radiobuttonList.size() ; i++)
 	    {
-	    	//System.out.println(radiobuttonList.get(i).getText());
 	    	if(radiobuttonList.get(i).getText().equals(getWorkspacePath()))
 	    	{
 	    		radiobuttonList.get(i).setSelected(true);
@@ -1432,7 +1264,6 @@ public class ChorusBuilderModule {
 		            public void run() {
 		                initUI();
 		            }});
-					//frame1.dispose();
 					}
 
 			
@@ -1464,7 +1295,6 @@ public class ChorusBuilderModule {
 		            public void run() {
 		                initUI();
 		            }});
-					//frame1.dispose();
 					}
 
 			
@@ -1485,8 +1315,6 @@ public class ChorusBuilderModule {
 			if(ReadConfig.readWorkspace("Workspacepath").size()== 1)
 			{
 				radiobtn1.setText(workspaceList.get(0));
-				//radiobtn1.setBackground(Color.WHITE);
-				//System.out.println(workspaceList.get(0));
 				radiobtn1.setForeground(Color.BLUE);
 				gc.weightx = 0;
 			    gc.gridx = 3;
@@ -1497,18 +1325,13 @@ public class ChorusBuilderModule {
 			}
 			else{
 				radiobtn1.setText(workspaceList.get(0));
-				//radiobtn1.setBackground(Color.WHITE);
-				//System.out.println(workspaceList.get(0));
 				radiobtn1.setForeground(Color.BLUE);
 				gc.weightx = 0;
 			    gc.gridx = 1;
 			    gc.gridy = 1;
 			    infopanel.add(radiobtn1,gc);
 			    
-//			   
-			    
 			    radiobtn2.setText(workspaceList.get(1));
-			    //radiobtn2.setBackground(Color.WHITE);
 				radiobtn2.setForeground(Color.BLUE);
 				gc.weightx = 0;
 			    gc.gridx = 3;
@@ -1522,7 +1345,6 @@ public class ChorusBuilderModule {
 		
 		 for(int i = 0 ; i < radiobuttonList.size() ; i++)
 		    {
-		    	//System.out.println(radiobuttonList.get(i).getText());
 		    	if(radiobuttonList.get(i).getText().equals(getWorkspacePath()))
 		    	{
 		    		radiobuttonList.get(i).setSelected(true);
@@ -1612,7 +1434,6 @@ public class ChorusBuilderModule {
 		ArrayList<String> logfiles = new ArrayList<String>();
 		File base = new File(workspacePath+"\\parent\\server\\chorus-server-run\\target\\chorus\\logs");
 		File[] listofFiles = base.listFiles();
-		//System.out.println(listofFiles.length);
 		
 		JPanel optionpanel = new JPanel(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
@@ -1728,8 +1549,7 @@ public class ChorusBuilderModule {
 				    gc.gridx = 1;
 				    gc.gridy = 1;
 				   optionpanel.add(info,gc);
-					
-					//e.printStackTrace();
+				
 				}
 		  
 		   Launch_local_Button.addActionListener(new ActionListener() {
@@ -1821,7 +1641,6 @@ public class ChorusBuilderModule {
           		    		cmd += "-Dcom.ca.chorus.bootstrap.teiidVdbReadyTimeoutSecs="+resumetext.getText();
           		    	}
           		    	ChorusMavenBuilder.mavenBuilder(workspacePath,cmd,build_status_button,ReadConfig.readConfig("UserId"));
-          		    	//System.out.println(cmd);
           		    	frame.dispose();
           		    }
             });
@@ -2008,6 +1827,4 @@ fileName = chooser.getSelectedFile().getPath();
 }
 }
 }
-
-
 
