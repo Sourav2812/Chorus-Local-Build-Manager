@@ -1,0 +1,7 @@
+<chorusbuilderinfo>
+<username>manso03</usename>
+<password>chorman8</password>
+<commands>
+<build>mvn install -B -P chorusui-prod,flex,gwt-compile -Dcom.ca.chorus.bootstrap.teiidVdbReadyTimeoutSecs=100000000 -Denvironment=production -Dcompilewar=true -Pzip -Duser.name=manso03 -Duser.password=coolrus9 -DskipTests=true</build>
+<cargo>cargo:run -Duser.name=manso03 -Duser.password=chorman8</cargo>
+</chorusbuilderinfo>

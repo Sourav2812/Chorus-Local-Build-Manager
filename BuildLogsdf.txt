@@ -1,0 +1,19 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.081s
+[INFO] Finished at: Tue Jul 01 15:59:40 IST 2014
+[INFO] Final Memory: 10M/245M
+[INFO] ------------------------------------------------------------------------
+[WARNING] The requested profile "chorusui-prod" could not be activated because it does not exist.
+[WARNING] The requested profile "flex" could not be activated because it does not exist.
+[WARNING] The requested profile "gwt-compile" could not be activated because it does not exist.
+[WARNING] The requested profile "zip" could not be activated because it does not exist.
+[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (C:\Chorus_Builder\Chorus Builder). Please verify you invoked Maven from the correct directory. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
